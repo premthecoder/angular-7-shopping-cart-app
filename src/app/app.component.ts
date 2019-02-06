@@ -9,12 +9,12 @@ import { Item } from './item';
 })
 export class AppComponent {
   title = 'shopping-cart';
-
+  cartCount: any;
   items: Item[];
 
   constructor(private dataService: DataService)
   {
-    
+    this.cartCount = dataService.cartCount;
   }
 
 }
