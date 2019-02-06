@@ -1,0 +1,114 @@
+<div class="row" style="margin-top: 70px;">
+    <div class="col-md-7"></div>
+    <div class="input-group mb-2 col-md-2">
+        <div class="input-group-append">
+            <span class="input-group-text">Total</span>
+          </div>
+        <div class="input-group-prepend">
+          <span class="input-group-text">&#8377;</span>
+        </div>
+        <input type="text" [value]="totalCost" style="max-width: 59%;color: white; background-color: #17a2b8;" class="form-control costField" aria-label="Amount (to the nearest dollar)" disabled>
+        
+      </div>
+    <div class="col-md-3"></div>
+</div>
+
+<div class="row" style="margin-top: 20px;">
+  <div class="col-md-3"></div>
+  <div class="col-md-6">
+      <div class="accordion" id="accordionExample">
+          <div class="card">
+            <div class="card-header" id="headingOne">
+              <h2 class="mb-0">
+                <button class="btn btn-outline-info" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                  Credit/Debit Card
+                </button>
+              </h2>
+            </div>
+        
+            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+              <div class="card-body">
+                  <div class="input-group mb-3">
+                      <input type="text" class="form-control" placeholder="Card Number" aria-label="Card Number" required>
+                  </div>
+                  <div class="input-group mb-3">
+                      <input type="password" class="form-control" placeholder="CVC" aria-label="CVC" required>
+                  </div>
+                  <div class="input-group mb-3">
+                      <input type="text" class="form-control" placeholder="Expiry MM/YY" aria-label="Expiry" required>
+                  </div>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+              <div class="card-header" id="headingThree">
+                <h2 class="mb-0">
+                  <button class="btn btn-outline-info collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    Paytm Gateway
+                  </button>
+                </h2>
+              </div>
+              <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                <div class="card-body">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Enter mobile number" aria-label="Paytm" required>
+                    </div>
+                </div>
+              </div>
+            </div>
+          <div class="card">
+            <div class="card-header" id="headingTwo">
+              <h2 class="mb-0">
+                <button class="btn btn-outline-info collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                  UPI Gateway
+                </button>
+              </h2>
+            </div>
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+              <div class="card-body">
+                  <div class="input-group mb-3">
+                      <input type="text" class="form-control" placeholder="Enter UPI" aria-label="UPI" required>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+  </div>
+  <div class="col-md-3"></div>
+</div>
+
+<div class="row" style="margin-top: 10px;">
+    <div class="col-md-7"></div>
+    <div class="col-md-2 payButton" style="margin-left: 38px;">
+        <button type="button" class="btn btn-info" (click)="startTimer()" data-toggle="modal" data-target="#exampleModalCenter">Click here to Pay</button>
+    </div>
+    <div class="col-md-3"></div>
+</div>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalCenterTitle">
+              <span *ngIf="!payment">Processing Payment...</span>
+              <span *ngIf="payment">Payment Success!</span>
+          </h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          
+            <div *ngIf="!payment" class="spinner-border text-info" role="status">
+                <span class="sr-only">Loading...</span>
+              </div>
+              <span *ngIf="!payment">Please don't close this window.</span>
+              <span *ngIf="payment">You can close the popup now.</span>
+        </div>
+        <div class="modal-footer">
+          <button type="button" [disabled]="!payment" class="btn btn-outline-info" data-dismiss="modal">Ok</button>
+        </div>
+      </div>
+    </div>
+  </div>
