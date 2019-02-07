@@ -1,6 +1,8 @@
-<ul style="margin-top: 70px;">
-<li class="col-md-3" *ngFor="let item of items" style="float: left; list-style-type: none; margin-bottom: 15px;">
-<div class="card" style="float: left; width: 18rem">
+<!-- <ul style="margin-top: 70px;">
+<li class="col-md-3" *ngFor="let item of items" style="float: left; list-style-type: none; margin-bottom: 15px;"> -->
+<div style="margin-top: 70px;">
+<div class="col-md-3 float-left" *ngFor="let item of items">
+<div class="card" style="float: left; width: 18rem; margin-bottom: 15px;">
   <img [src]="item.imageUrl" class="card-img-top" style="height: 200px; width: 100%;" alt="...">
   <div class="card-body">
     <h5 class="card-title">{{item.name}} &#8377;{{item.price}}/kg</h5>
@@ -12,5 +14,7 @@
     <h3 style="float: right;"><span class="badge badge-secondary">{{item.qty}}</span></h3>
   </div>
 </div>
-</li>
-</ul>
+</div>
+</div>
+<!-- </li>
+</ul> -->

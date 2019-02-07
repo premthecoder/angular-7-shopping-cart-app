@@ -12,7 +12,7 @@ export class AppComponent {
   cartCount: any;
   items: Item[];
 
-  constructor(private dataService: DataService)
+  constructor(public dataService: DataService)
   {
     this.cartCount = dataService.cartCount;
   }
