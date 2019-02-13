@@ -9,6 +9,7 @@ import { DataService } from '../data.service';
 export class CheckoutComponent implements OnInit {
 
   totalCost: any;
+  totalCostN: number;
 
   timeLeft: number = 3;
   interval;
@@ -28,10 +29,17 @@ startTimer() {
   }
 
   constructor(private dataService: DataService) { 
-      this.dataService.totalCost.subscribe(totalCost => this.totalCost = totalCost+".00");
+      this.dataService.totalCost.subscribe(totalCost => {
+        this.totalCostN = totalCost;
+        this.totalCost = this.totalCostN+".00"
+      });
   }
 
   ngOnInit() {
+    this.dataService.totalCost.subscribe(totalCost => {
+      this.totalCostN = totalCost;
+      this.totalCost = this.totalCostN+".00"
+    });
   }
 
 }

@@ -37,6 +37,11 @@ export class CartComponent implements OnInit {
 
   redirectToCheckout()
   {
+    if(this.totalCostN===0)
+    {
+      // alert("Please buy some items first.");
+      return false;
+    }
     this.dataService.updateTotalCost(this.totalCostN);
     this.router.navigateByUrl('/checkout');
   }
